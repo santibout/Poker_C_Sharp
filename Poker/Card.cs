@@ -13,10 +13,10 @@ namespace Poker
 
         public enum SUIT
         {
-            DIAMOND,
-            HEART,
-            CLUB,
-            SPADE
+            DIAMONDS,
+            HEARTS,
+            CLUBS,
+            SPADES
         }
 
         public enum VALUE
