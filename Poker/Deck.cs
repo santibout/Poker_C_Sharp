@@ -8,7 +8,6 @@ namespace Poker
 {
     class Deck : Card
     {
-        public Card[] GetDeck { get { return deck; } }
 
         const int NUM_OF_CARDS = 52;
         private Card[] deck;
@@ -18,6 +17,8 @@ namespace Poker
             deck = new Card[NUM_OF_CARDS];
         }
 
+        public Card[] GetDeck { get { return deck; } }
+
         public void CreateDeck()
         {
             int i = 0;
@@ -25,7 +26,8 @@ namespace Poker
             {
                 foreach(VALUE v in Enum.GetValues(typeof(VALUE)))
                 {
-                    deck[i] = new Card { Suit = s, Value = v }; 
+                    deck[i] = new Card { Suit = s, Value = v };
+                    i++;
                 }
             }
             Shuffle();

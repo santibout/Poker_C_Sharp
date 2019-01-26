@@ -19,24 +19,20 @@ namespace Poker
             //width is 10 spaces the line going down will be the other 2
             Console.Write(" __________\n");//Top edge of the card
 
-            for(int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                Console.SetCursorPosition(X, Y = 1 + i);
+                Console.SetCursorPosition(X, Y + 1 + i);
 
-                if(i != 9)
-                {
+                if (i != 9)
                     Console.WriteLine("|          |");//Left and right edges of card
-                }
                 else
-                {
                     Console.WriteLine("|__________|");//Bottom edge of card
-                }
             }
         }
         //Displays suit and value of card inside its outline
         public static void DrawCardSuitValue(Card c, int x, int y)
         {
-            char Suit = ' ';
+            char s = ' ';
             int X = x * 12;
             int Y = y;
 
@@ -45,30 +41,28 @@ namespace Poker
             switch (c.Suit)
             {
                 case Card.SUIT.HEARTS:
-                    Suit = Encoding.GetEncoding(437).GetChars(new byte[] { 3 })[0];
+                    s = Encoding.GetEncoding(437).GetChars(new byte[] { 3 })[0];
                     Console.ForegroundColor = ConsoleColor.Red;
                     break;
                 case Card.SUIT.DIAMONDS:
-                    Suit = Encoding.GetEncoding(437).GetChars(new byte[] { 4 })[0];
+                    s = Encoding.GetEncoding(437).GetChars(new byte[] { 4 })[0];
                     Console.ForegroundColor = ConsoleColor.Red;
                     break;
                 case Card.SUIT.CLUBS:
-                    Suit = Encoding.GetEncoding(437).GetChars(new byte[] { 5 })[0];
+                    s = Encoding.GetEncoding(437).GetChars(new byte[] { 5 })[0];
                     Console.ForegroundColor = ConsoleColor.Black;
                     break;
                 case Card.SUIT.SPADES:
-                    Suit = Encoding.GetEncoding(437).GetChars(new byte[] { 6 })[0];
+                    s = Encoding.GetEncoding(437).GetChars(new byte[] { 6 })[0];
                     Console.ForegroundColor = ConsoleColor.Black;
                     break;
             }
             //Display encoded character and value of card
             Console.SetCursorPosition(X + 5, Y + 5);
-            Console.Write(Suit);
-            Console.SetCursorPosition(x + 4, y + 7);
+            Console.Write(s);
+            Console.SetCursorPosition(X + 4, Y + 7);
             Console.WriteLine(c.Value);
-            Console.SetCursorPosition(x + 5, y + 8);
-            Console.WriteLine("OF");
-            Console.SetCursorPosition(x + 3, y + 9);
+            Console.SetCursorPosition(X + 4, Y + 8);
             Console.WriteLine(c.Suit);
 
         }
